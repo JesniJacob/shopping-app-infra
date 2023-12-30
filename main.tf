@@ -62,7 +62,7 @@ resource "aws_security_group" "http_access" {
 #Ec2 instance creation
 
 resource "aws_instance" "frontend" {
-  ami                    = data.aws_ami.latest.id
+  ami                    = var.instance_ami
   instance_type          = var.instance_type
   key_name               = aws_key_pair.mykey.key_name
   vpc_security_group_ids = [aws_security_group.http_access.id]
